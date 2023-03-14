@@ -1,0 +1,113 @@
+﻿/* general text formatting */
+
+h1,
+h2,
+h3,
+nav,
+footer {
+   font-family: Georgia, Cambria, "Times New Roman", serif;
+}
+
+body {
+   font-family: "Lucida Sans", Verdana, Arial, sans-serif;
+   font-size: 80%;
+}
+
+div#searchBox {
+   padding: 0.5em;
+}
+
+
+div#searchBox,
+div#listBox {
+   margin: 0.25em auto;
+   background-color: #EBF4FB;
+   border: 1pt solid #95BEF0;
+   width: 80%;
+   border-radius: 5px;
+}
+
+table th {
+   padding: 0 1.5em;
+   height: 50%;
+   background-color: #EBF4FB;
+}
+
+#table_decoration {
+   background-color: #95BEF0;
+   height: 25px;
+   width: 100%;
+}
+
+div#searchBox {
+   margin-top: 1em;
+}
+
+div#listBox {
+   margin-top: 1em;
+   background-color: #FAFCFF;
+}
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+
+}
+
+table tbody td {
+   border-top: 1pt solid #95BEF0;
+   line-height: 1.5em;
+   vertical-align: middle;
+   padding: 0.5em 0.75em;
+   max-width: 520px;
+}
+
+table thead th {
+   text-align: left;
+   padding: 0.25em 0.75em;
+}
+
+table thead {
+   background-color: #3174a8;
+}
+
+table tbody td:first-child {
+   text-align: center;
+   padding: 0.5em 0;
+}
+
+caption {
+   background-color: #95BEF0;
+   padding: 0.5em 0.5em;
+   font-weight: bold;
+   font-size: 1.2em;
+}
+
+table tr {
+   height: 1em;
+}
+
+footer {
+   font-size: 0.8em;
+   text-align: center;
+   margin-top: 1em;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.cart {
+   float: right;
+   vertical-align: middle;
+}
+
+#cart_logo {
+   height: 20px;
+   vertical-align: middle;
+}
+
+table {
+   width: 100%;
+}
+
+#list_body tr {
+   background-color: #D1D1D1;
+}

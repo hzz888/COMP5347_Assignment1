@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>COMP5347 Assignment1</title>
+    <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <form method="get" action="">
+        <div id="searchBox">
+            <input type="text" name="search">
+            <input type="submit" value="Search" id="search_button">
+            <select name="category" id="category">
+                <option value="Category" selected>Category</option>
+                <option value="Art">Art</option>
+                <option value="Science History">Science History</option>
+                <option value="Action and Adventure">Action and Adventure</option>
+                <option value="Health">Health</option>
+                <option value="Science Fiction">Science Fiction</option>
+            </select>
+            <input type="submit" value="Filter" id="filter_button">
+            <span class="cart">
+                <input type="submit" value="Add to cart" id="add_button">
+                <input type="reset" value="Reset the cart" id="reset_button">
+                <img src="/images/shopping_cart.png" alt="shopping_cart" id="cart_logo">
+                <span>(</span>
+                <span id="cart_quantity">0</span>
+                <span>)</span>
+            </span>
+
+        </div>
+        <div id="listBox">
+            <div id="table_decoration"></div>
+            <table id="booklist">
+                <thead>
+                    <tr id="table_head">
+                        <th> </th>
+                        <th> </th>
+                        <th>Title</th>
+                        <th> </th>
+                        <th>Authors</th>
+                        <th>Year</th>
+                        <th>Price</th>
+                        <th>Publisher</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody id="list_body">
+                </tbody>
+            </table>
+        </div>
+    </form>
+    <footer>USYD-2023-COMP5347-hzz</footer>
+</body>
+
+</html>
