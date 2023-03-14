@@ -60,6 +60,7 @@ table tbody td {
    vertical-align: middle;
    padding: 0.5em 0.75em;
    max-width: 520px;
+   overflow: auto;
 }
 
 table thead th {
