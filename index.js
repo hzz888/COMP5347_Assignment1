@@ -5,8 +5,8 @@ window.onload = function () {
         function (data) {
             bookList = data; // store the book list into bookList
             current_list = bookList;
-            console.log(bookList); // print it into console (developer tools)
-            console.log(bookList[0]); // print the first book object into console
+            // console.log(bookList); // print it into console (developer tools)
+            // console.log(bookList[0]); // print the first book object into console
             // here you can call methods to load or refresh the page
             // loadBooks() or refreshPage()
             loadBooks(bookList);
@@ -58,7 +58,7 @@ window.onload = function () {
                 if (book.title.toLowerCase().includes(input.toLowerCase())) {
                     var element = document.getElementById(book.title);
                     element.style.backgroundColor = "green";
-                    console.log(element);
+                    // console.log(element);
                 }
             }
         } else {
