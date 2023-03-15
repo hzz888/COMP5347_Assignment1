@@ -1,7 +1,7 @@
-window.onload = function(){
-    let bookList = []; // book list container
+window.onload = function () {
+    let bookList = [];
     getJsonObject('data.json',
-        function(data) {
+        function (data) {
             bookList = data; // store the book list into bookList
             console.log(bookList); // print it into console (developer tools)
             console.log(bookList[0]); // print the first book object into console
@@ -9,13 +9,31 @@ window.onload = function(){
             // loadBooks() or refreshPage()
             loadBooks(bookList);
         },
-        function(xhr) { console.error(xhr); }
+        function (xhr) { console.error(xhr); }
     );
+
+    const search = document.getElementById("search_button");
+    search.onclick = function () {
+        var input = document.getElementById("search").value;
+        if(input != ""){
+        for (var i = 0; i < bookList.length; i++) {
+            var book = bookList[i];
+            if (book.title.toLowerCase().includes(input.toLowerCase())) {
+                var element = document.getElementById(book.title);
+                element.style.backgroundColor = "green";
+                console.log(element);
+            }
+        }
+        // document.getElementById("search").value = "";
+        } else {
+            removeHighlight();
+        }
+    }
 }
 
 function getJsonObject(path, success, error) {
     const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 if (success) success(JSON.parse(xhr.responseText));
@@ -28,7 +46,7 @@ function getJsonObject(path, success, error) {
     xhr.send();
 }
 
-function loadBooks(bookList){
+function loadBooks(bookList) {
     // load books from bookList
     var list = document.getElementById("list_body");
     console.log(list);
@@ -92,7 +110,15 @@ function loadBooks(bookList){
         row.appendChild(price);
         row.appendChild(publisher);
         row.appendChild(category);
-        
+
+        row.setAttribute("id", book.title);
         list.appendChild(row);
+    }
+}
+
+function removeHighlight() {
+    var books = document.getElementById("list_body").getElementsByTagName("tr");
+    for (var i = 0; i < books.length; i++) {
+        books[i].style.backgroundColor = "#E3E3E3";
     }
 }
