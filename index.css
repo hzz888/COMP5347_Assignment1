@@ -134,3 +134,8 @@ table {
    display: inline-block;
    vertical-align: middle;
 }
+
+.rate{
+   min-width: 100px;
+}
+
