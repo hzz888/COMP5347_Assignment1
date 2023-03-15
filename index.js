@@ -1,6 +1,10 @@
+var bookList;
+var current_list;
+var dark;
 window.onload = function () {
-    var bookList = [];
-    var current_list = [];
+    bookList = [];
+    current_list = [];
+    dark = false;
     getJsonObject('data.json',
         function (data) {
             bookList = data; // store the book list into bookList
@@ -64,7 +68,19 @@ window.onload = function () {
         } else {
             removeHighlight();
         }
+    }
 
+    document.getElementById("dark_checkbox").onclick = function () {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+        dark = !dark;
+        var li = document.getElementById("list_body").getElementsByTagName("tr");
+        for (let index = 0; index < li.length; index++) {
+            var element = li[index];
+            if (element.style.backgroundColor != "green") {
+                element.style.backgroundColor = dark ? "#DEA254" : "#E3E3E3";
+            }
+        }
     }
 }
 
@@ -157,11 +173,6 @@ function loadBooks(list) {
 function removeHighlight() {
     var books = document.getElementById("list_body").getElementsByTagName("tr");
     for (var i = 0; i < books.length; i++) {
-        books[i].style.backgroundColor = "#E3E3E3";
+        books[i].style.backgroundColor = dark ? "#DEA254" : "#E3E3E3";
     }
-}
-
-function toggleDark() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
 }
