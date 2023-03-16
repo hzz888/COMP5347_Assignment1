@@ -15,7 +15,9 @@ window.onload = function () {
             // loadBooks() or refreshPage()
             loadBooks(bookList);
         },
-        function (xhr) { console.error(xhr); }
+        function (xhr) {
+            console.error(xhr);
+        }
     );
 
     var search = document.getElementById("search_button");
@@ -23,12 +25,12 @@ window.onload = function () {
         var input = document.getElementById("search").value;
         if (input != "") {
             removeHighlight();
-            for (var i = 0; i < current_list.length; i++) {
+            for (let i = 0; i < current_list.length; i++) {
                 var book = current_list[i];
                 if (book.title.toLowerCase().includes(input.toLowerCase())) {
                     var element = document.getElementById(book.title);
                     element.style.backgroundColor = "green";
-                    console.log(element);
+                    // console.log(element);
                 }
             }
         } else {
@@ -41,7 +43,7 @@ window.onload = function () {
         var category_input = document.getElementById("category").value;
         if (category_input != "Category") {
             current_list = [];
-            for (var i = 0; i < bookList.length; i++) {
+            for (let i = 0; i < bookList.length; i++) {
                 if (bookList[i].category == category_input) {
                     current_list.push(bookList[i]);
                 }
@@ -57,7 +59,7 @@ window.onload = function () {
         var input = document.getElementById("search").value;
         if (input != "") {
             removeHighlight();
-            for (var i = 0; i < current_list.length; i++) {
+            for (let i = 0; i < current_list.length; i++) {
                 var book = current_list[i];
                 if (book.title.toLowerCase().includes(input.toLowerCase())) {
                     var element = document.getElementById(book.title);
@@ -102,7 +104,7 @@ function getJsonObject(path, success, error) {
 function loadBooks(list) {
     // load books from bookList
     var list_area = document.getElementById("list_body");
-    console.log(list);
+    // console.log(list);
     for (var i = 0; i < list.length; i++) {
         var book = list[i];
         var row = document.createElement("tr");
@@ -122,6 +124,7 @@ function loadBooks(list) {
         checkboxInput.setAttribute("type", "checkbox");
         checkboxInput.setAttribute("name", "book");
         checkboxInput.setAttribute("value", book.title);
+        checkboxInput.setAttribute("class", "book_checkbox");
         checkbox.appendChild(checkboxInput);
 
         var img = document.createElement("img");
