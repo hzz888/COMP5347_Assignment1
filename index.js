@@ -1,6 +1,7 @@
 var bookList;
 var current_list;
 var dark;
+var choosen;
 window.onload = function () {
     bookList = [];
     current_list = [];
@@ -177,9 +178,10 @@ function loadBooks(list) {
         let book = checkboxes[i];
         book.onclick = function () {
             [...checkboxes].forEach(elem => {
-                elem.checked = false;
-            })
-            book.checked = true;
+                if (elem != book) {
+                    elem.checked = false;
+                }  
+            })   
         }
     }
 }
