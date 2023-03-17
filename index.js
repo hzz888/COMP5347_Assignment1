@@ -171,6 +171,18 @@ function loadBooks(list) {
         row.setAttribute("id", book.title);
         list_area.appendChild(row);
     }
+
+    let checkboxes = document.getElementsByClassName("book_checkbox");
+    for (let i = 0; i < checkboxes.length; i++) {
+        let book = checkboxes[i];
+
+        book.onclick = function () {
+            [...checkboxes].forEach(elem => {
+                elem.checked = false;
+            })
+            book.checked = true;
+        }
+    }
 }
 
 function removeHighlight() {
