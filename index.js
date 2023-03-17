@@ -175,7 +175,6 @@ function loadBooks(list) {
     let checkboxes = document.getElementsByClassName("book_checkbox");
     for (let i = 0; i < checkboxes.length; i++) {
         let book = checkboxes[i];
-
         book.onclick = function () {
             [...checkboxes].forEach(elem => {
                 elem.checked = false;
