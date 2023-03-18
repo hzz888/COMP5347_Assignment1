@@ -6,6 +6,7 @@ window.onload = function () {
     bookList = [];
     current_list = [];
     dark = false;
+    choosen = false;
     getJsonObject('data.json',
         function (data) {
             bookList = data; // store the book list into bookList
@@ -83,6 +84,43 @@ window.onload = function () {
             if (element.style.backgroundColor != "green") {
                 element.style.backgroundColor = dark ? "#DEA254" : "#E3E3E3";
             }
+        }
+    }
+
+    document.getElementById("add_button").onclick = function () {
+        var checkboxes = document.getElementsByClassName("book_checkbox");
+        choosen = false;
+        [...checkboxes].forEach(elem => {
+            if (elem.checked) {
+                choosen = true;
+            }
+        })
+        if (!choosen) {
+            alert("Please choose one book to add!");
+        } else {
+            var quantity = prompt("Please enter the quantity:", "1");
+            if (quantity != null && !isNaN(quantity) && quantity >= 1 && quantity % 1 === 0) {
+                var cart_quantity = parseInt(document.getElementById("cart_quantity").innerHTML);
+                cart_quantity = parseInt(cart_quantity) + parseInt(quantity);
+                document.getElementById("cart_quantity").innerHTML = cart_quantity;
+
+                [...checkboxes].forEach(elem => {
+                    elem.checked = false;
+                })
+                choosen = false;
+
+            } else {
+                alert("Please enter a valid number and click confirm!");
+            }
+        }
+    }
+
+    document.getElementById("reset_button").onclick = function () {
+        var reset_confirm = confirm("Are you sure to reset the cart?");
+        if (reset_confirm) {
+            var cart_quantity = parseInt(document.getElementById("cart_quantity").innerHTML);
+            cart_quantity = 0;
+            document.getElementById("cart_quantity").innerHTML = cart_quantity;
         }
     }
 }
@@ -180,8 +218,8 @@ function loadBooks(list) {
             [...checkboxes].forEach(elem => {
                 if (elem != book) {
                     elem.checked = false;
-                }  
-            })   
+                }
+            })
         }
     }
 }
