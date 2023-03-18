@@ -25,6 +25,7 @@ window.onload = function () {
     var search = document.getElementById("search_button");
     search.onclick = function () {
         var input = document.getElementById("search").value;
+        var found = false;
         if (input != "") {
             removeHighlight();
             for (let i = 0; i < current_list.length; i++) {
@@ -32,8 +33,12 @@ window.onload = function () {
                 if (book.title.toLowerCase().includes(input.toLowerCase())) {
                     var element = document.getElementById(book.title);
                     element.style.backgroundColor = "green";
-                    // console.log(element);
+                    found = true;
                 }
+            }
+            if (!found) {
+                removeHighlight();
+                alert("No book found!"); 
             }
         } else {
             removeHighlight();
@@ -43,15 +48,20 @@ window.onload = function () {
     var filter = document.getElementById("filter_button");
     filter.onclick = function () {
         var category_input = document.getElementById("category").value;
+        var hasBooks = false;
         if (category_input != "Category") {
             current_list = [];
             for (let i = 0; i < bookList.length; i++) {
                 if (bookList[i].category == category_input) {
                     current_list.push(bookList[i]);
+                    hasBooks = true;
                 }
             }
             document.getElementById("list_body").innerHTML = "";
             loadBooks(current_list);
+            if (!hasBooks) {
+                alert("No book in this category!")
+            }
         } else {
             document.getElementById("list_body").innerHTML = "";
             loadBooks(bookList);
@@ -116,7 +126,7 @@ window.onload = function () {
     }
 
     document.getElementById("reset_button").onclick = function () {
-        var reset_confirm = confirm("Are you sure to reset the cart?");
+        var reset_confirm = confirm("Is it okay to reset the cart?");
         if (reset_confirm) {
             var cart_quantity = parseInt(document.getElementById("cart_quantity").innerHTML);
             cart_quantity = 0;

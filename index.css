@@ -6,6 +6,7 @@ h3,
 nav,
 footer {
    font-family: Georgia, Cambria, "Times New Roman", serif;
+   text-align: center;
 }
 
 body {
